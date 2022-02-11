@@ -6,8 +6,8 @@ PKGCONFIG += nemotransferengine-qt5
 QT += qml
 
 NAME = harbour-openurl
-UI_DIR = /usr/share/$${NAME}
-TR_DIR = $${UI_DIR}/translations
+DATA_DIR = /usr/share/$${NAME}
+TR_DIR = $${DATA_DIR}/translations
 
 QMAKE_CXXFLAGS += -Wpedantic
 
@@ -16,7 +16,7 @@ INCLUDEPATH += \
 
 DEFINES += \
     NAME=\\\"$${NAME}\\\" \
-    UI_DIR=\\\"$${UI_DIR}\\\" \
+    DATA_DIR=\\\"$${DATA_DIR}\\\" \
     TR_DIR=\\\"$${TR_DIR}\\\"
 
 CONFIG(debug, debug|release) {
@@ -88,9 +88,9 @@ target.path = $$[QT_INSTALL_LIBS]/nemo-transferengine/plugins
 INSTALLS += target
 
 images.files = images/*
-images.path = $${UI_DIR}
+images.path = $${DATA_DIR}
 INSTALLS += images
 
 qml.files = qml/*
-qml.path = $${UI_DIR}
+qml.path = $${DATA_DIR}
 INSTALLS += qml
