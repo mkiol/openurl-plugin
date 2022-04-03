@@ -2,10 +2,10 @@
 #define INFO_H
 
 namespace OpenUrl {
-    constexpr auto* appName = NAME;
-    constexpr auto* trDir = DATA_DIR "/translations";
-    constexpr auto* uiFile = DATA_DIR "/OpenUrl.qml";
-    constexpr auto* iconFile = DATA_DIR "/icon.svg";
-}
+constexpr auto* appName = NAME;
+constexpr auto* trDir = DATA_DIR "/translations";
+constexpr auto* uiFile = DATA_DIR "/OpenUrl.qml";
+constexpr auto* iconFile = DATA_DIR "/icon.svg";
+}  // namespace OpenUrl
 
-#endif // INFO_H
+#endif  // INFO_H

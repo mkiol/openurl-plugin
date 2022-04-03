@@ -8,14 +8,13 @@
 #include "openurlplugininfo.h"
 
 #include <QDebug>
+#include <QGuiApplication>
 #include <QLocale>
 #include <QTranslator>
 
 #include "info.h"
 
-OpenUrlPluginInfo::OpenUrlPluginInfo()
-    : m_ready(false)
-{
+OpenUrlPluginInfo::OpenUrlPluginInfo() {
     auto qtr = new QTranslator{this};
     if (qtr->load(QLocale{}, {}, {}, OpenUrl::trDir, ".qm") ||
         qtr->load(QLocale{"en"}, {}, {}, OpenUrl::appName, ".qm")) {
@@ -24,28 +23,15 @@ OpenUrlPluginInfo::OpenUrlPluginInfo()
         delete qtr;
     }
 
-    TransferMethodInfo info;
-    info.displayName = tr("Open link");
-    info.methodId = OpenUrl::appName;
-    info.shareUIPath = OpenUrl::uiFile;
-    info.capabilitities << QLatin1String{"text/x-url"};
-    info.accountIcon = OpenUrl::iconFile;
+    SharingMethodInfo info;
+    info.setDisplayName(tr("Open link"));
+    info.setMethodId(OpenUrl::appName);
+    info.setShareUIPath(OpenUrl::uiFile);
+    info.setCapabilities({QLatin1String{"text/x-url"}});
+    info.setMethodIcon(OpenUrl::iconFile);
     m_infoList << info;
 }
 
-QList<TransferMethodInfo> OpenUrlPluginInfo::info() const
-{
-    return m_infoList;
-}
+QList<SharingMethodInfo> OpenUrlPluginInfo::info() const { return m_infoList; }
 
-void OpenUrlPluginInfo::query()
-{
-    m_ready = true;
-    emit infoReady();
-}
-
-
-bool OpenUrlPluginInfo::ready() const
-{
-    return m_ready;
-}
+void OpenUrlPluginInfo::query() { emit infoReady(); }

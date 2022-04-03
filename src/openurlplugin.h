@@ -8,25 +8,21 @@
 #ifndef OPENURLPLUGIN_H
 #define OPENURLPLUGIN_H
 
+#include <TransferEngine-qt5/sharingplugininfo.h>
+#include <TransferEngine-qt5/sharingplugininterface.h>
+
 #include <QObject>
 #include <QString>
 
-#include <TransferEngine-qt5/transferplugininterface.h>
-#include <TransferEngine-qt5/transferplugininfo.h>
-#include <TransferEngine-qt5/transfermethodinfo.h>
-#include <TransferEngine-qt5/mediatransferinterface.h>
-
-class Q_DECL_EXPORT OpenUrlPlugin : public QObject, public TransferPluginInterface
-{
+class Q_DECL_EXPORT OpenUrlPlugin : public QObject,
+                                    public SharingPluginInterface {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.mkiol.transfer.plugin.harbour-openurl")
-    Q_INTERFACES(TransferPluginInterface)
+    Q_PLUGIN_METADATA(IID "org.mkiol.sharing.plugin.harbour-openurl")
+    Q_INTERFACES(SharingPluginInterface)
 
-public:
-    MediaTransferInterface * transferObject() override;
-    TransferPluginInfo *infoObject() override;
+   public:
+    SharingPluginInfo *infoObject() override;
     QString pluginId() const override;
-    bool enabled() const override;
 };
 
-#endif // OPENURLPLUGIN_H
+#endif  // OPENURLPLUGIN_H

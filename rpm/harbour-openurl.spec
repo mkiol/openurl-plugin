@@ -1,5 +1,5 @@
 Name:       harbour-openurl
-Version:    1.0.0
+Version:    1.1.0
 Release:    1
 License:    MPL-2.0
 Summary:    Sharing plugin for opening links
@@ -32,7 +32,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_libdir}/nemo-transferengine/plugins/libharbouropenurlplugin.so
+%{_libdir}/nemo-transferengine/plugins/sharing/libharbouropenurlplugin.so
 %{_datadir}/%{name}/*.qml
 %{_datadir}/%{name}/*.svg
 %{_datadir}/%{name}/translations/*.qm

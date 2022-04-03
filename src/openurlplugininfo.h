@@ -8,24 +8,21 @@
 #ifndef OPENURLPLUGININFO_H
 #define OPENURLPLUGININFO_H
 
+#include <TransferEngine-qt5/sharingmethodinfo.h>
+#include <TransferEngine-qt5/sharingplugininfo.h>
+
 #include <QObject>
 
-#include <TransferEngine-qt5/transferplugininfo.h>
-#include <TransferEngine-qt5/transfermethodinfo.h>
-
-class OpenUrlPluginInfo : public TransferPluginInfo
-{
+class OpenUrlPluginInfo : public SharingPluginInfo {
     Q_OBJECT
-public:
+   public:
     OpenUrlPluginInfo();
 
-    QList<TransferMethodInfo> info() const override;
+    QList<SharingMethodInfo> info() const override;
     void query() override;
-    bool ready() const override;
 
-private:
-    QList<TransferMethodInfo> m_infoList;
-    bool m_ready;
+   private:
+    QList<SharingMethodInfo> m_infoList;
 };
 
-#endif // OPENURLPLUGININFO_H
+#endif  // OPENURLPLUGININFO_H

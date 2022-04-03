@@ -32,13 +32,11 @@ OTHER_FILES += \
 HEADERS += \
     src/info.h \
     src/openurlplugininfo.h \
-    src/openurlplugin.h \
-    src/openurluploader.h
+    src/openurlplugin.h
 
 SOURCES += \
     src/openurlplugininfo.cpp \
-    src/openurlplugin.cpp \
-    src/openurluploader.cpp
+    src/openurlplugin.cpp
 
 TR_SOURCES = \
   $${_PRO_FILE_PWD_}/qml \
@@ -84,7 +82,7 @@ qm.path = $$TR_DIR
 qm.CONFIG += no_check_exist
 INSTALLS += qm
 
-target.path = $$[QT_INSTALL_LIBS]/nemo-transferengine/plugins
+target.path = $$[QT_INSTALL_LIBS]/nemo-transferengine/plugins/sharing
 INSTALLS += target
 
 images.files = images/*

@@ -7,27 +7,9 @@
 
 #include "openurlplugin.h"
 
-#include "openurluploader.h"
-#include "openurlplugininfo.h"
 #include "info.h"
+#include "openurlplugininfo.h"
 
-MediaTransferInterface * OpenUrlPlugin::transferObject()
-{
-    return new OpenUrlUploader;
-}
+SharingPluginInfo* OpenUrlPlugin::infoObject() { return new OpenUrlPluginInfo; }
 
-TransferPluginInfo *OpenUrlPlugin::infoObject()
-{
-    return new OpenUrlPluginInfo;
-}
-
-QString OpenUrlPlugin::pluginId() const
-{
-    return OpenUrl::appName;
-}
-
-bool OpenUrlPlugin::enabled() const
-{
-    return true;
-}
-
+QString OpenUrlPlugin::pluginId() const { return OpenUrl::appName; }
